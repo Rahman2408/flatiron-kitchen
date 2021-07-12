@@ -1,0 +1,7 @@
+<h2>Update <%= @recipe.name.titleize %></h2>
+
+<%= form_for @recipe do |f| %>
+<%= render partial: 'form', locals: {f: f } %>
+    <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name  %><br>
+
+<% end %>

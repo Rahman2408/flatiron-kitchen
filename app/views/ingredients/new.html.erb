@@ -1,0 +1,15 @@
+<% if @ingredient.errors.any? %>
+    
+    <% @ingredient.errors.full_messages.each do |error| %>
+    
+        <li><%= error %></li>
+    <% end%>
+
+    
+<% end %>
+
+<%= form_for @ingredient do |f| %>
+    <%= render partial: "recipes/form", locals: {f: f } %>
+        <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name  %><br>
+
+<% end %>
